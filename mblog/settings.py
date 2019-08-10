@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # my app
+    'mainsite',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +54,12 @@ ROOT_URLCONF = 'mblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [
+                    os.path.join(BASE_DIR, 'templates'),
+
+
+
+                 ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -112,6 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+# 此处STATIC_URL的静态文件夹名称必须要与STATICFILES_DIRS中的一致,否则静态文件无法正确访问,名字可以是任意,
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
