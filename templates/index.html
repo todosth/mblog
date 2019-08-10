@@ -1,22 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>欢迎光临我的blog</title>
-</head>
-<body>
-    <h1>welcome to my blog!</h1>
-    <hr>
-    {% for post in posts %}
-        <p style="font-family: Arial;font-size: 16pt;font-weight: bold">
+{% extends 'base.html' %}
+{% block title %}welcome my blog{% endblock %}
+{% block headmessage %}
+    <h3>本站文章列表</h3>
 
-            <a href="/post/{{ post.slug }}">{{ post.title }}</a>
-        </p>
+{% endblock %}
+{% block content %}
+    {% for post in posts %}
+
+
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p style="font-weight: bold;">
+                        <a href="post/{{ post.slug }}">{{ post.title }}</a>
+                    </p>
+                </div>
+                <div class="panel-body">
+                    {{ post.body | truncatechars:40 }}
+                </div>
+
+                <div class="panel-footer">
+                    <p>发布时间:{{ post.pub_date |date:"Y M d, h:m:s" }}</p>
+                </div>
+            </div>
+
 
 
     {% endfor %}
-    <hr>
-    <h3>time_now:{{ now }}</h3>
 
-</body>
-</html>
+{% endblock %}
+

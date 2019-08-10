@@ -20,6 +20,8 @@ from mainsite import views
 app_name = "mainsite"
 urlpatterns = [
     path(r'', views.homepage,name="index"),
+    path(r'post/<slug>', views.showpost,name="post"),
+    # path(r'^post/(/\w+)$', views.showpost,name="index"), 这种写法不可以了
 
 
 ]
